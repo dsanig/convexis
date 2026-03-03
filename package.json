@@ -1,0 +1,20 @@
+{
+  "name": "convexis",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/web",
+    "packages/shared"
+  ],
+  "scripts": {
+    "postinstall": "bash scripts/setup-python.sh",
+    "dev": "concurrently -n web,api -c cyan,magenta \"npm --workspace apps/web run dev\" \"npm run dev:api\"",
+    "dev:api": "bash scripts/run-api-dev.sh",
+    "build:web": "npm --workspace apps/web run build",
+    "start": "npm run build:web && bash scripts/run-api-prod.sh",
+    "lint": "npm --workspace apps/web run lint"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

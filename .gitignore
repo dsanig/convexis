@@ -1,0 +1,7 @@
+node_modules
+.venv
+.env
+apps/web/dist
+__pycache__
+*.pyc
+.convexis-data
